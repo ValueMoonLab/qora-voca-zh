@@ -6,6 +6,8 @@ A 4.5M-parameter, three-voice Mandarin Chinese text-to-speech model, trained fro
 
 > 中文文档见下方；English summary at the bottom.
 
+**🔊 试听样本**：[F2 女声](https://github.com/ValueMoonLab/qora-voca-zh/releases/download/v1.0.0/F2-1.wav) · [M2 男声](https://github.com/ValueMoonLab/qora-voca-zh/releases/download/v1.0.0/M2-1.wav) · [M3 年轻男声](https://github.com/ValueMoonLab/qora-voca-zh/releases/download/v1.0.0/M3-1.wav) · [v1.0.0 Release（权重+ONNX 下载）](https://github.com/ValueMoonLab/qora-voca-zh/releases/tag/v1.0.0)
+
 ---
 
 ## 这是什么
