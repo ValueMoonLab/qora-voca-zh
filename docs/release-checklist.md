@@ -32,8 +32,8 @@ Patterns: real names, local usernames, `C:\Users\...`, absolute drive paths, pri
 - [x] CI workflow: ubuntu + windows, tests + CPU smoke synthesis.
 - [x] Fresh `git init` (no old .git / remotes / author history).
 - [x] Commit author/committer = GitHub noreply email (GH007 privacy).
-- [ ] `gh repo create ValueMoonLab/qora-voca-zh --public --source . --push`
-- [ ] Post-push: anonymous README fetch, `gh repo view --json visibility`, CI green, fresh clone re-scan.
+- [x] `gh repo create ValueMoonLab/qora-voca-zh --public --source . --push` (commit 8a2e50a)
+- [x] Post-push: anonymous README fetch OK, visibility PUBLIC, CI success (ubuntu+windows), all 97 blob hashes verified identical local↔remote, public-tree content scan clean.
 
 ## Numbers frozen for docs
 
