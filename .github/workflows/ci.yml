@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install (CPU torch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+      - name: Tests
+        env:
+          PYTHONPATH: src
+        run: python -m pytest tests -q
+      - name: CLI smoke (CPU synthesis from the released checkpoint)
+        run: |
+          python -m tiny_voca.infer --checkpoint release/qora-voca-zh.pt --text "今天天气真不错，我们一起去公园散步吧。" --voice F2 --output smoke.wav --device cpu
+          python -c "import soundfile as sf; a, r = sf.read('smoke.wav'); assert r == 24000 and len(a) > 24000, (r, len(a)); print('smoke ok', len(a)/r, 'seconds')"
